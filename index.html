@@ -1,0 +1,151 @@
+	<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Despre mine - Micsku Andra</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #222;
+      text-align: center;
+      transition: all 0.5s ease;
+    }
+
+    img {
+      width: 300px;
+      height: 250px;
+      border: 3px solid #333;
+      border-radius: 10px;
+      margin: 10px 0;
+      opacity: 1;
+      transition: all 0.5s ease;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 70%;
+    }
+
+    th, td {
+      border: 1px solid #333;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #ddd;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="nume">Nume: Micsku</h1>
+  <h2 id="prenume">Prenume: Andra</h2>
+  <h3 id="emailText">Email: Micsku.va.andra@student.utcluj.ro</h3>
+
+  <img id="profil" src="imagini/OIP.webp" alt="Poza mea">
+
+  <h4>Așteptări legate de educație:</h4>
+  <p id="educatie">Terminarea facultății cu succes.</p>
+
+  <h4>Discipline</h4>
+  <table>
+    <tr>
+      <th>Disciplina</th>
+      <th>An</th>
+      <th>Fișa disciplinei</th>
+    </tr>
+    <tr>
+      <td>Analiză</td>
+      <td>1</td>
+      <td><a href="https://etti.utcluj.ro/files/Acasa/Site/FiseDisciplina/EaRo/01.pdf" target="_blank">Fișă Analiză</a></td>
+    </tr>
+    <tr>
+      <td>Programarea calculatoarelor și limbaje de programare I - seria B</td>
+      <td>2</td>
+      <td><a href="https://etti.utcluj.ro/files/Acasa/Site/FiseDisciplina/EaRo/10.pdf" target="_blank">Fișă Programare</a></td>
+    </tr>
+  </table>
+
+  <h5>Hobby-uri</h5>
+  <ul id="hobbyuri">
+    <li>Handbal</li>
+    <li>Filme</li>
+    <li>Dormit</li>
+  </ul>
+
+  <!-- 🔹 Anul nașterii + calcul vârstă -->
+  <p>Anul nașterii: <span id="anNastere" onmouseover="afiseazaVarsta()">2005</span></p>
+
+  <!-- 🔹 Validare email -->
+  <p>
+    Introdu o adresă de email: 
+    <input type="text" id="emailInput" placeholder="ex:nume@domeniu.com" onblur="verificaEmail()">
+  </p>
+
+  <!-- 🔹 Butonul "Alta viață" -->
+  <button id="altaViata">Alta viață</button>
+
+  <script>
+    // Când se apasă butonul "Alta viață"
+    document.getElementById("altaViata").onclick = function() {
+      // Schimb numele și poziția
+      document.getElementById("nume").innerHTML = "Software Engineer la Google";
+      document.getElementById("prenume").innerHTML = "Andra Micsku";
+
+      // Schimb educația și hobby-urile
+      document.getElementById("educatie").innerHTML = "Master în Inteligență Artificială la UTCN.";
+      document.getElementById("hobbyuri").innerHTML = `
+        <li>Dezvoltare aplicații mobile</li>
+        <li>AI și machine learning</li>
+        <li>Calătorii și fotografie</li>
+      `;
+
+      // Schimb imaginea
+      document.getElementById("profil").src = "images/oip.webp";
+
+      // Schimb culorile paginii
+      document.body.style.backgroundColor = "#1a1a1a";
+      document.body.style.color = "#f1f1f1";
+
+      // Modific stilul imaginii
+      let img = document.getElementById("profil");
+      img.style.border = "5px solid white";
+      img.style.opacity = "0.8";
+    };
+
+    // Afișează vârsta
+    function afiseazaVarsta() {
+      const anNastere = 2005;
+      const anulCurent = new Date().getFullYear();
+      const varsta = anulCurent - anNastere;
+      document.getElementById("anNastere").innerHTML = varsta + " ani";
+    }
+
+    // Verifică dacă emailul conține '@'
+    function verificaEmail() {
+      const email = document.getElementById("emailInput").value;
+      if (!email.includes("@")) {
+        alert("Adresa de email nu este validă!");
+      }
+    }
+  </script>
+</body>
+</html>
+                         
